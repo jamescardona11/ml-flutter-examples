@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ml_flutter_examples/facedetection/face_detection_page.dart';
 import 'package:ml_flutter_examples/speechtotext/speech_to_text.dart';
 import 'package:ml_flutter_examples/textscanner/text_scanner_page.dart';
 
@@ -24,6 +25,7 @@ class _NavigatorIntern extends StatelessWidget {
   final Map<String, Widget> screens = {
     'Speech to Text': SpeechToTextPage(),
     'Scanner Text': TextScannerPage(),
+    'Face Detection': FaceDetectionPage(),
   };
 
   @override

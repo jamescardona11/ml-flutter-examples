@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'scanner_utils.dart';
 
 class TextScannerPage extends StatefulWidget {
   @override

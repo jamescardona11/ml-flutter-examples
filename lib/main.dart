@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ml_flutter_examples/speechtotext/speech_to_text.dart';
-import 'package:ml_flutter_examples/utils/utils.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,6 +9,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       home: Scaffold(
+        appBar: AppBar(
+          title: Text('List of apps'),
+        ),
         body: _NavigatorIntern(),
       ),
     );
@@ -31,4 +33,20 @@ class _NavigatorIntern extends StatelessWidget {
       ),
     );
   }
+}
+
+List<Widget> convertMapToList(BuildContext context, screens) {
+  List<Widget> listItems = [];
+  screens.forEach(
+        (key, value) => listItems.add(
+      Card(
+        child: ListTile(
+          title: Text(key, style: TextStyle()),
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => value)),
+        ),
+      ),
+    ),
+  );
+
+  return listItems;
 }

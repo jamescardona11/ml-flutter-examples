@@ -1,0 +1,311 @@
+{
+  "project_info": {
+    "project_number": "692075402930",
+    "firebase_url": "https://flash-flutter-projects.firebaseio.com",
+    "project_id": "flash-flutter-projects",
+    "storage_bucket": "flash-flutter-projects.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692075402930:android:221dcc38f0839f68f15bab",
+        "android_client_info": {
+          "package_name": "co.jako43.pushdemofhudemy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692075402930-6hifvk27cst9ja75a5ilrt9ea252fbmp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.jako43.pushdemofhudemy",
+            "certificate_hash": "c9101f6055d0b2bf39e33b2b2c1a2dd883b066fe"
+          }
+        },
+        {
+          "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFyERhGkvnp49U1wDTNHDYwTaIvC5LhNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "692075402930-bk6g2f0ka31ad2bajggh0b4btq3a0f5c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.kodevincere.quickbee"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692075402930:android:85b1279c2bf6f902f15bab",
+        "android_client_info": {
+          "package_name": "co.kodevincere.firebase_filledstacks_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFyERhGkvnp49U1wDTNHDYwTaIvC5LhNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "692075402930-bk6g2f0ka31ad2bajggh0b4btq3a0f5c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.kodevincere.quickbee"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692075402930:android:02e0852238566d9cf15bab",
+        "android_client_info": {
+          "package_name": "co.kodevincere.firebasedddresocoder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692075402930-qpjhtqni3qkvhnelqfeej8b7gfinaiqn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.kodevincere.firebasedddresocoder",
+            "certificate_hash": "c9101f6055d0b2bf39e33b2b2c1a2dd883b066fe"
+          }
+        },
+        {
+          "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFyERhGkvnp49U1wDTNHDYwTaIvC5LhNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "692075402930-bk6g2f0ka31ad2bajggh0b4btq3a0f5c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.kodevincere.quickbee"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692075402930:android:05ea7485f1e75922f15bab",
+        "android_client_info": {
+          "package_name": "co.kodevincere.ml_flutter_examples"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692075402930-62t34ii0i8n1jm5s6vtupq92n3t2ejhq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.kodevincere.ml_flutter_examples",
+            "certificate_hash": "a0d223a94048ea35b010f5e284d14e762460c444"
+          }
+        },
+        {
+          "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFyERhGkvnp49U1wDTNHDYwTaIvC5LhNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "692075402930-bk6g2f0ka31ad2bajggh0b4btq3a0f5c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.kodevincere.quickbee"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692075402930:android:38511c9582d7b966f15bab",
+        "android_client_info": {
+          "package_name": "co.kodevincere.quickbee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692075402930-jclir5c9mvjbek15q3jg8dk4q7iko687.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.kodevincere.quickbee",
+            "certificate_hash": "a0d223a94048ea35b010f5e284d14e762460c444"
+          }
+        },
+        {
+          "client_id": "692075402930-a0d3e8jmgcolv9unh4msafsips5i2rkl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.kodevincere.quickbee",
+            "certificate_hash": "c9101f6055d0b2bf39e33b2b2c1a2dd883b066fe"
+          }
+        },
+        {
+          "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFyERhGkvnp49U1wDTNHDYwTaIvC5LhNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "692075402930-bk6g2f0ka31ad2bajggh0b4btq3a0f5c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.kodevincere.quickbee"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692075402930:android:37772173d2602fbff15bab",
+        "android_client_info": {
+          "package_name": "co.kodevincere.signinfirebaseapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692075402930-8f30dmvblltlkv0pb9nfto2245r6830r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.kodevincere.signinfirebaseapp",
+            "certificate_hash": "c9101f6055d0b2bf39e33b2b2c1a2dd883b066fe"
+          }
+        },
+        {
+          "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFyERhGkvnp49U1wDTNHDYwTaIvC5LhNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "692075402930-bk6g2f0ka31ad2bajggh0b4btq3a0f5c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.kodevincere.quickbee"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692075402930:android:3930107171401d6df15bab",
+        "android_client_info": {
+          "package_name": "co.kodevincere.test_restaurants_flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFyERhGkvnp49U1wDTNHDYwTaIvC5LhNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692075402930-22cpnr6evcvc16errvnqckn7v47d3vi8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "692075402930-bk6g2f0ka31ad2bajggh0b4btq3a0f5c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.kodevincere.quickbee"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

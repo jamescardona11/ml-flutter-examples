@@ -22,29 +22,37 @@ class _TextScannerPageState extends State<TextScannerPage> {
             getImageBackground(),
             SizedBox(height: 25),
             if (_text != '')
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Found Text:', style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.w600)),
-                  SingleChildScrollView(
-                    child: Text(_text, style: TextStyle(fontSize: 18, color: Colors.black)),
-                  )
-                ],
+              Container(
+                height: 350,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Found Text:',
+                        style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.w600)),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Text(_text, style: TextStyle(fontSize: 18, color: Colors.black)),
+                      ),
+                    )
+                  ],
+                ),
               ),
             Expanded(child: SizedBox()),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.symmetric(horizontal: 30),
-              child: FlatButton(
-                color: Theme.of(context).primaryColor,
-                onPressed: () {
-                  setState(() {
-                    _selectedFile = null;
-                    _text = '';
-                  });
-                  takePicture();
-                },
-                child: Text('Take a photo', style: TextStyle(fontSize: 18, color: Colors.white)),
+            Expanded(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.symmetric(horizontal: 30),
+                child: FlatButton(
+                  color: Theme.of(context).primaryColor,
+                  onPressed: () {
+                    setState(() {
+                      _selectedFile = null;
+                      _text = '';
+                    });
+                    takePicture();
+                  },
+                  child: Text('Take a photo', style: TextStyle(fontSize: 18, color: Colors.white)),
+                ),
               ),
             ),
           ],
@@ -75,7 +83,23 @@ class _TextScannerPageState extends State<TextScannerPage> {
       FirebaseVisionImage preProcessImage = new FirebaseVisionImage.fromFilePath(pikedFile.path);
 
       VisionText textRecognized = await textRecognizer.processImage(preProcessImage);
-      String text = textRecognized.text;
+      /*String text = textRecognized.text;
+      setState(() {
+        _selectedFile = File(pikedFile.path);
+        _text = text;
+      });*/
+
+      String text = '';
+      for (TextBlock block in textRecognized.blocks) {
+        for (TextLine line in block.lines) {
+          for (TextElement word in line.elements) {
+            text = text + word.text + ' ';
+          }
+          text = text + '\n';
+        }
+      }
+      textRecognizer.close();
+
       setState(() {
         _selectedFile = File(pikedFile.path);
         _text = text;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ml_flutter_examples/speechtotext/speech_to_text.dart';
+import 'package:ml_flutter_examples/textscanner/text_scanner_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
 class _NavigatorIntern extends StatelessWidget {
   final Map<String, Widget> screens = {
     'Speech to Text': SpeechToTextPage(),
-    'Scanner Text': SpeechToTextPage(),
+    'Scanner Text': TextScannerPage(),
   };
 
   @override

@@ -1,9 +1,7 @@
 import 'dart:io';
-
-import 'package:camera/camera.dart';
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:image_picker/image_picker.dart';
 import 'scanner_utils.dart';
 
 class TextScannerPage extends StatefulWidget {
@@ -12,116 +10,77 @@ class TextScannerPage extends StatefulWidget {
 }
 
 class _TextScannerPageState extends State<TextScannerPage> {
-  CameraLensDirection _direction = CameraLensDirection.back;
-  CameraController _camera;
-  String _text;
-
-  @override
-  void initState() {
-    super.initState();
-    initCamera();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _camera?.dispose();
-  }
+  String _text = '';
+  File _selectedFile;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          _camera == null
-              ? Container(
-                  color: Theme.of(context).primaryColor,
-                )
-              : Container(
-                  height: MediaQuery.of(context).size.height,
-                  child: CameraPreview(_camera),
-                ),
-          if (_text != '')
-            Container(
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.black.withAlpha(100),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Column(
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            getImageBackground(),
+            SizedBox(height: 25),
+            if (_text != '')
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Found Text:', style: TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.w600)),
-                  Text(_text, style: TextStyle(fontSize: 18, color: Colors.white))
+                  Text('Found Text:', style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.w600)),
+                  SingleChildScrollView(
+                    child: Text(_text, style: TextStyle(fontSize: 18, color: Colors.black)),
+                  )
                 ],
               ),
-            ),
-          Positioned(
-            bottom: 50,
-            child: Container(
+            Expanded(child: SizedBox()),
+            Container(
               width: MediaQuery.of(context).size.width,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  _text == ''
-                      ? GestureDetector(
-                          child: Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor,
-                              borderRadius: BorderRadius.circular(100),
-                            ),
-                            child: IconButton(
-                              onPressed: () => takePicture(),
-                              icon: Icon(Icons.camera, size: 40, color: Colors.white),
-                            ),
-                          ),
-                        )
-                      : Column(
-                          children: <Widget>[
-                            FlatButton(
-                              color: Colors.white,
-                              onPressed: () => setState(() => _text = ''),
-                              child: Text('Take a photo', style: TextStyle(fontSize: 18, color: Colors.black)),
-                            ),
-                          ],
-                        )
-                ],
+              margin: EdgeInsets.symmetric(horizontal: 30),
+              child: FlatButton(
+                color: Theme.of(context).primaryColor,
+                onPressed: () {
+                  setState(() {
+                    _selectedFile = null;
+                    _text = '';
+                  });
+                  takePicture();
+                },
+                child: Text('Take a photo', style: TextStyle(fontSize: 18, color: Colors.white)),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
-  void initCamera() async {
-    _text = '';
-    final CameraDescription description = await ScannerUtils.getCamera(_direction);
-    setState(() {
-      _camera = CameraController(description, ResolutionPreset.high);
-    });
+  Image getImageBackground() {
+    if (_selectedFile != null) {
+      return Image.file(
+        _selectedFile,
+        width: 250,
+        height: 250,
+      );
+    }
 
-    await _camera.initialize();
-    debugPrint('Camera Ready');
+    return Image(
+      image: AssetImage('assets/placeholder.jpg'),
+      width: MediaQuery.of(context).size.width,
+    );
   }
 
   void takePicture() async {
-    Directory tempDir = await getTemporaryDirectory();
-    String tempPath = tempDir.path + '/' + DateTime.now().microsecond.toString();
-    await _camera.initialize();
-    await _camera.takePicture(tempPath);
+    final pikedFile = await ImagePicker().getImage(source: ImageSource.camera);
+    if (pikedFile != null) {
+      final TextRecognizer textRecognizer = FirebaseVision.instance.textRecognizer();
+      FirebaseVisionImage preProcessImage = new FirebaseVisionImage.fromFilePath(pikedFile.path);
 
-    final TextRecognizer textRecognizer = FirebaseVision.instance.textRecognizer();
-    FirebaseVisionImage preProcessImage = FirebaseVisionImage.fromFilePath(tempPath);
-    VisionText visionText = await textRecognizer.processImage(preProcessImage);
-    String text = visionText.text;
-
-    setState(() {
-      _text = text;
-    });
+      VisionText textRecognized = await textRecognizer.processImage(preProcessImage);
+      String text = textRecognized.text;
+      setState(() {
+        _selectedFile = File(pikedFile.path);
+        _text = text;
+      });
+    }
   }
 }

@@ -20,9 +20,11 @@ dependencies:
 
   ############ Text Scanner ################
   firebase_ml_vision: ^0.9.6+2
-  camera: ^0.5.8+5
-  path_provider: ^1.6.11
+  #image_picker: ^0.6.7+4 #Use if you use this project in other side
   ############################################
+
+  ############ Picker Utils ##################
+  image_picker: ^0.6.7+4
 
 dev_dependencies:
   flutter_test:

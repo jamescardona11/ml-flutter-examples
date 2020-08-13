@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
 class _NavigatorIntern extends StatelessWidget {
   final Map<String, Widget> screens = {
     'Speech to Text': SpeechToTextPage(),
+    'Scanner Text': SpeechToTextPage(),
   };
 
   @override
@@ -38,7 +39,7 @@ class _NavigatorIntern extends StatelessWidget {
 List<Widget> convertMapToList(BuildContext context, screens) {
   List<Widget> listItems = [];
   screens.forEach(
-        (key, value) => listItems.add(
+    (key, value) => listItems.add(
       Card(
         child: ListTile(
           title: Text(key, style: TextStyle()),

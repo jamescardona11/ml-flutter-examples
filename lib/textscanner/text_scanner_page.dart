@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
+import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'scanner_utils.dart';
 
 class TextScannerPage extends StatefulWidget {
@@ -72,11 +76,7 @@ class _TextScannerPageState extends State<TextScannerPage> {
                             ),
                             child: IconButton(
                               onPressed: () => takePicture(),
-                              icon: Icon(
-                                Icons.camera,
-                                size: 40,
-                                color: Colors.white,
-                              ),
+                              icon: Icon(Icons.camera, size: 40, color: Colors.white),
                             ),
                           ),
                         )
@@ -85,10 +85,7 @@ class _TextScannerPageState extends State<TextScannerPage> {
                             FlatButton(
                               color: Colors.white,
                               onPressed: () => setState(() => _text = ''),
-                              child: Text(
-                                'Take a photo',
-                                style: TextStyle(fontSize: 18, color: Colors.black),
-                              ),
+                              child: Text('Take a photo', style: TextStyle(fontSize: 18, color: Colors.black)),
                             ),
                           ],
                         )
@@ -112,5 +109,19 @@ class _TextScannerPageState extends State<TextScannerPage> {
     debugPrint('Camera Ready');
   }
 
-  void takePicture() {}
+  void takePicture() async {
+    Directory tempDir = await getTemporaryDirectory();
+    String tempPath = tempDir.path + '/' + DateTime.now().microsecond.toString();
+    await _camera.initialize();
+    await _camera.takePicture(tempPath);
+
+    final TextRecognizer textRecognizer = FirebaseVision.instance.textRecognizer();
+    FirebaseVisionImage preProcessImage = FirebaseVisionImage.fromFilePath(tempPath);
+    VisionText visionText = await textRecognizer.processImage(preProcessImage);
+    String text = visionText.text;
+
+    setState(() {
+      _text = text;
+    });
+  }
 }
